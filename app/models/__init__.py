@@ -9,4 +9,7 @@ def init_db(app):
     
     # Create all database tables defined in models
     with app.app_context():
+        # Drop all tables first
+        db.drop_all()
+        # Then recreate all tables
         db.create_all() 
