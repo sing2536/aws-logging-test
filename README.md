@@ -1,16 +1,17 @@
 # AWS Logging Test
 
-A Flask application designed for testing AWS logging and deployment configurations with AWS Python Elastic Beanstalk and Aurora RDS PostgreSQL. This project provides a simple API with database connectivity for testing purposes.
+A FastAPI application designed for testing AWS logging and deployment configurations with AWS Python Elastic Beanstalk and Aurora RDS PostgreSQL. This project provides a simple API with database connectivity for testing purposes.
 
 ## Features
 
--   Flask web application with Aurora RDS PostgreSQL database integration
+-   FastAPI web application with Aurora RDS PostgreSQL database integration
 -   Database test endpoints for connection testing and data manipulation
 -   AWS Elastic Beanstalk Python environment deployment support
+-   Interactive API documentation with Swagger UI
 
 ## Requirements
 
--   Python 3.x
+-   Python 3.8+
 -   AWS Aurora RDS PostgreSQL database
 -   AWS Elastic Beanstalk (for deployment)
 
@@ -50,12 +51,19 @@ python main.py
 
 The application will start on port 8000 (http://localhost:8000).
 
+## API Documentation
+
+FastAPI provides automatic interactive API documentation:
+
+-   Swagger UI: http://localhost:8000/docs
+-   ReDoc: http://localhost:8000/redoc
+
 ## API Endpoints
 
 -   `/` - Home page
--   `/test` - Test database connection
--   `/info` - Get database information
--   `/add-users/<count>` - Add random users to the database
+-   `/db/test` - Test database connection
+-   `/db/info` - Get database information
+-   `/db/add-users/{count}` - Add random users to the database
 
 ## Deployment
 

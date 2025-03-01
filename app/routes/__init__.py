@@ -1,11 +1,12 @@
 """Routes initialization."""
+from fastapi import FastAPI
 
-def init_routes(app):
-    """Register all blueprints/routes with the app."""
-    # Import the blueprints
-    from app.routes.main import main_bp
-    from app.routes.db import db_bp
+def init_routes(app: FastAPI):
+    """Register all routes with the app."""
+    # Import the route modules
+    from app.routes.main import router as main_router
+    from app.routes.db import router as db_router
     
-    # Register blueprints
-    app.register_blueprint(main_bp)
-    app.register_blueprint(db_bp, url_prefix='/db') 
+    # Include routers
+    app.include_router(main_router)
+    app.include_router(db_router, prefix="/db") 

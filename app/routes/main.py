@@ -1,9 +1,9 @@
 """Main routes for the application."""
-from flask import Blueprint
+from fastapi import APIRouter
 
-main_bp = Blueprint('main', __name__)
+router = APIRouter()
 
-@main_bp.route("/")
+@router.get("/")
 def index():
     """Home page route."""
-    return "Your Flask App Works!"
+    return {"message": "Your FastAPI App Works!"}

@@ -1,4 +1,6 @@
-Flask
-Flask-SQLAlchemy
+fastapi
+uvicorn
+sqlmodel
 psycopg2-binary
 python-dotenv
+pydantic

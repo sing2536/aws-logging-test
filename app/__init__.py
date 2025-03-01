@@ -1,19 +1,19 @@
 """Application factory module."""
-from flask import Flask
-from app.config.config import DB_URI, SQLALCHEMY_TRACK_MODIFICATIONS
+from fastapi import FastAPI
+from app.config.config import DB_URI
 from app.models import init_db
 from app.routes import init_routes
 
 def create_app():
-    """Create and configure the Flask application."""
-    app = Flask(__name__)
-    
-    # Configure the app
-    app.config['SQLALCHEMY_DATABASE_URI'] = DB_URI
-    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = SQLALCHEMY_TRACK_MODIFICATIONS
+    """Create and configure the FastAPI application."""
+    app = FastAPI(
+        title="AWS Logging Test",
+        description="A FastAPI application for testing AWS logging",
+        version="0.1.0"
+    )
     
     # Initialize the database
-    init_db(app)
+    init_db()
     
     # Register routes
     init_routes(app)

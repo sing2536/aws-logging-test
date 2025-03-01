@@ -5,8 +5,6 @@ from dotenv import load_dotenv
 # Load environment variables from .env file if it exists
 load_dotenv()
 
-SQLALCHEMY_TRACK_MODIFICATIONS = False
-
 # Database configuration
 # Get database connection details from environment variables
 DB_HOST = os.environ.get('DB_HOST')
