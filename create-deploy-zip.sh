@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Script to create a clean deployment ZIP file for Elastic Beanstalk
-# Excludes macOS metadata files like .DS_Store, ._* files, and __MACOSX directories
+# Excludes development files, git files, and macOS metadata files
 
 # Default output filename
 OUTPUT_FILE="eb-deploy.zip"
@@ -18,13 +18,17 @@ if [ -f "$OUTPUT_FILE" ]; then
 fi
 
 echo "Creating deployment package: $OUTPUT_FILE"
-echo "Excluding macOS metadata files..."
+echo "Excluding unnecessary files..."
 
-# Create ZIP file, excluding macOS metadata files
+# Create ZIP file, excluding unnecessary files
 zip -r "$OUTPUT_FILE" . \
     -x "*.DS_Store" \
     -x "__MACOSX/*" \
     -x "._*" \
+    -x ".git/*" \
+    -x ".gitignore" \
+    -x "__pycache__/*" \
+    -x "*.pyc" \
     -x "$OUTPUT_FILE" \
     -x "create-deploy-zip.sh"
 
