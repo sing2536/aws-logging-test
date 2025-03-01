@@ -22,11 +22,24 @@ A Flask application designed for testing AWS logging and deployment configuratio
     pip install -r requirements.txt
     ```
 3. Set environment variables:
+
+    Option 1: Using environment variables directly:
+
     ```
     export DB_HOST=your_db_host
     export DB_NAME=your_db_name
     export DB_USER=your_db_username
     export DB_PASSWORD=your_db_password
+    ```
+
+    Option 2: Using a .env file (recommended for local development):
+
+    ```
+    # Copy the example file
+    cp .env.example .env
+
+    # Edit the .env file with your database credentials
+    nano .env  # or use your preferred text editor
     ```
 
 ## Running Locally
